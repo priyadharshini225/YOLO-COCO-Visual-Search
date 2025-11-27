@@ -1,24 +1,45 @@
 # YOLOv11 Visual Search Application
 
-A fast and intelligent computer vision search system built using YOLOv11 and Streamlit.
-The application performs object detection, generates metadata, and enables smart searching across image collections based on classes and count thresholds.
+Fast, Accurate, and Intelligent Image Search using YOLOv11 + Streamlit
+
+# Abstract / Introduction
+
+This project presents an intelligent visual search system built using YOLOv11 and Streamlit, designed to perform fast object detection and metadata-driven search across image collections.
+The system processes raw images, runs YOLOv11 inference, extracts detections, generates metadata, and provides a powerful search interface using class-based and count-based filtering with logical AND / OR operations.
+
+The application is optimized for deployment in VS Code using a Conda environment, supporting both CPU and GPU execution modes, and offers a clean, user-friendly interface for real-time visualization and search.
 
 ## Features
 
 ⚡ YOLOv11 Object Detection
 
-🔍 Smart Search with AND / OR logic
+High-speed, high-accuracy detection,
+Runs on CPU or GPU,
+Saves metadata for fast reload
 
-🖼️ Bounding Box Visualization
+📦 Metadata Creation
 
-📦 Metadata Storage for Fast Reload
+Stores per-image JSON files
+Includes counts, class names, bounding boxes, etc.
 
-🎯 Class & Count-Based Filtering
+🔍 Smart Search Engine
 
-🧹 Clean Streamlit Interface
+Supports:
+
+Class-based search,
+Object count thresholds,
+AND / OR logic,
+Instant metadata-based search
+
+🖼️ Output Visualization
+
+Bounding box overlay,
+Confidence scores,
+3-column image grid,
+Detected object summary
 
 ```
-Project Structure
+# Project Structure
 Yolo_11/
 ├── app.py
 ├── configs/
@@ -32,6 +53,53 @@ Yolo_11/
 │   └── processed/
 └── test/
 ```
+## Environment Setup (Conda)
+
+The project must be executed locally using VS Code + Conda environment.
+
+Create Conda Environment
+```
+conda create -n yolo11env python=3.10 -y
+conda activate yolo11env
+```
+Install Dependencies
+```
+pip install -r requirements.txt
+```
+## GPU Installation Steps
+
+(For NVIDIA CUDA systems)
+
+1️⃣ Install PyTorch GPU version
+```
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+```
+
+2️⃣ Install YOLOv11 + remaining libraries
+```
+pip install ultralytics streamlit opencv-python pillow pyyaml
+```
+
+## How to Run in VS Code Using Conda
+
+1. Open project in VS Code
+
+2. Select the Conda environment:
+
+3. Activate terminal:
+
+4. conda activate yolo11env
+
+5. Run the application:
+```
+streamlit run app.py
+```
+## Deployment Using Streamlit
+
+Once executed, Streamlit launches automatically at:
+
+### http://localhost:8501/
+
 ## Application Snapshots
 
 ### Main Screen
@@ -101,3 +169,4 @@ Sample Outputs
 
 All Rights Reserved
 Unauthorized copying, modification, or redistribution of this project is prohibited.
+
